@@ -108,7 +108,7 @@ document.querySelectorAll('.experience-card').forEach((card, index) => {
 
 // Initialize EmailJS
 (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    emailjs.init("w8RC4uHxhcrgwkE0O"); // EmailJS Public Key
 })();
 
 // Contact Form Handler
@@ -134,7 +134,7 @@ contactForm.addEventListener('submit', (e) => {
     };
 
     // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+    emailjs.send('service_e18182a', 'template_817p8k9', formData)
         .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
             showNotification('Thank you! Your message has been sent successfully.', 'success');
