@@ -60,6 +60,36 @@ body {
     font-weight: bold;
     color: var(--light-text);
     text-decoration: none;
+    position: relative;
+    display: inline-block;
+    min-width: 250px;
+}
+
+.logo .logo-text {
+    transition: opacity 0.3s ease;
+}
+
+.logo .logo-fullname {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    pointer-events: none;
+}
+
+.logo:hover .logo-text {
+    opacity: 0;
+}
+
+.logo:hover .logo-fullname {
+    opacity: 1;
 }
 
 .logo-dot {

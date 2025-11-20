@@ -1,3 +1,21 @@
+// Typing Animation for Name
+const typedNameElement = document.getElementById('typedName');
+const nameText = 'Satyam Parsad';
+let charIndex = 0;
+
+function typeNameAnimation() {
+    if (charIndex < nameText.length) {
+        typedNameElement.textContent += nameText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeNameAnimation, 100);
+    }
+}
+
+// Start typing animation after page loads
+window.addEventListener('load', () => {
+    setTimeout(typeNameAnimation, 500);
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -88,32 +106,49 @@ document.querySelectorAll('.experience-card').forEach((card, index) => {
     observer.observe(card);
 });
 
+// Initialize EmailJS
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+})();
+
 // Contact Form Handler
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    // Disable button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    // Get form data
     const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
+        message: document.getElementById('message').value,
+        to_email: 'satyamprasad553@gmail.com'
     };
 
-    // Create mailto link
-    const mailtoLink = `mailto:satyamprasad553@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-
-    // Open mail client
-    window.location.href = mailtoLink;
-
-    // Show success message
-    showNotification('Thank you! Your message has been sent.', 'success');
-
-    // Reset form
-    contactForm.reset();
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            showNotification('Thank you! Your message has been sent successfully.', 'success');
+            contactForm.reset();
+        })
+        .catch((error) => {
+            console.log('FAILED...', error);
+            showNotification('Oops! Something went wrong. Please try again or email directly.', 'error');
+        })
+        .finally(() => {
+            // Re-enable button
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        });
 });
 
 // Notification Function
@@ -171,25 +206,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Typing Effect for Hero Title (Optional Enhancement)
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
-    heroTitle.style.opacity = '1';
-
-    let index = 0;
-    function typeWriter() {
-        if (index < text.length) {
-            heroTitle.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        }
-    }
-
-    // Start typing effect after a short delay
-    setTimeout(typeWriter, 500);
-}
+// Typing effect is now handled at the top of the file for the name only
 
 // Active Navigation Link on Scroll
 window.addEventListener('scroll', () => {

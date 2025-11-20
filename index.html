@@ -11,7 +11,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">SP<span class="logo-dot">.</span></a>
+            <a href="#" class="logo">
+                <span class="logo-text">SP<span class="logo-dot">.</span></span>
+                <span class="logo-fullname">Satyam Parsad</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -33,7 +36,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Satyam Parsad</span>
+                    Hi, I'm <span class="gradient-text" id="typedName"></span>
                 </h1>
                 <p class="hero-subtitle">Software Developer | BCA Final Year Student</p>
                 <p class="hero-description">
@@ -45,17 +48,17 @@
                 </div>
                 <div class="social-links">
                     <a href="mailto:satyamprasad553@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/satyamparsad" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/satyamparsad" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Satyam7Parsad" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/satyam-parsad-aa4265396" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="code-animation">
-                    <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</div>
-                    <div class="code-line">  <span class="code-property">name:</span> <span class="code-string">'Satyam Parsad'</span>,</div>
-                    <div class="code-line">  <span class="code-property">skills:</span> [<span class="code-string">'Java'</span>, <span class="code-string">'C++'</span>, <span class="code-string">'Spring Boot'</span>],</div>
-                    <div class="code-line">  <span class="code-property">passion:</span> <span class="code-string">'Building Innovation'</span></div>
-                    <div class="code-line">};</div>
+                    <div class="code-line"><span class="code-keyword">public class</span> <span class="code-var">Developer</span> {</div>
+                    <div class="code-line">  <span class="code-keyword">String</span> name = <span class="code-string">"Satyam Parsad"</span>;</div>
+                    <div class="code-line">  <span class="code-keyword">String[]</span> skills = {<span class="code-string">"Java"</span>, <span class="code-string">"C++"</span>, <span class="code-string">"Spring Boot"</span>};</div>
+                    <div class="code-line">  <span class="code-keyword">String</span> passion = <span class="code-string">"Building Innovation"</span>;</div>
+                    <div class="code-line">}</div>
                 </div>
                 <div class="floating-shapes">
                     <div class="shape shape-1"></div>
@@ -404,12 +407,13 @@
             <p>&copy; 2025 Satyam Parsad. All rights reserved.</p>
             <div class="footer-social">
                 <a href="mailto:satyamprasad553@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/satyamparsad" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/satyamparsad" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Satyam7Parsad" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/satyam-parsad-aa4265396" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
